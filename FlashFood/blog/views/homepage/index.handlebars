@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head >
+    <title></title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <link rel="stylesheet" href="OSMBuildings.css">
+    <script src="OSMBuildings.js"></script>
+    <script src="street.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+     
+     
+        
+    <style>
+        #map { height: 800px; }
+    </style>
+    
+</head>
+<body>
+    <form id="form1" >
+    <!-- <div class="btn-group pull-right ">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+        view
+      </button>
+      <div class="dropdown-menu " onClick = "street_call()">
+        <input type="radio" name="map_lay" value= "street"> street</input><br>
+        <input type="radio" name= "map_lay" value="3d"> 3D</input>
+      </div>
+    </div> -->
+        <div id="map">
+          <button type="button" id="mydiv" class="btn btn-success" onClick = "street_call()" >Success</button>
+        </div>
+        
+        <script>
+          var Hydda_Full = L.tileLayer('https://{s}.tiles.mapbox.com/v3/osmbuildings.kbpalbpk/{z}/{x}/{y}.png',{});   
+          var map = L.map('map', {
+            center: [40.758568, -73.985430],
+            zoom: 18,
+            layers: [Hydda_Full]
+          });
+          var baseMaps = {
+            "Street": Hydda_Full
+          };
+          L.control.layers(baseMaps).addTo(map);
+         </script>
+        
+      
+    
+    </form>
+</body>
+</html>
